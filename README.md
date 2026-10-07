@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="docs/assets/longvideo_eval_logo.png" alt="LongVideo-Eval logo" width="300">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/longvideo_eval_logo_dark.png">
+  <img src="docs/assets/longvideo_eval_logo.png" alt="LongVideo-Eval logo" width="300">
+</picture>
 
 # LongVideo-Eval: Evaluation Infrastructure for Long-Video Intelligence
 
