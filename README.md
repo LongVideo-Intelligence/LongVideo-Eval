@@ -1,68 +1,64 @@
+<div align="center">
+
+<img src="docs/assets/longvideo_eval_logo.png" alt="LongVideo-Eval logo" width="300">
+
+# LongVideo-Eval: A Fair-Cost Platform for Long-Video Understanding
+
+[![Project Page](https://img.shields.io/badge/Project-Page-8A2BE2?logo=googlechrome&logoColor=white)](https://sixundong.com/projects/longvideo-eval)
+[![GitHub](https://img.shields.io/badge/GitHub-Code-black?logo=github)](https://github.com/Ironieser/LongVideo-Eval)
+[![Release log](https://img.shields.io/badge/Release-log-orange)](CHANGELOG.md)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](#-get-involved)
+[![License](https://img.shields.io/badge/License-Apache%202.0-green)](LICENSE)
+
+**LongVideo-Eval Team**
+
+Project lead: **[Sixun Dong](https://sixundong.com)**
+
+</div>
+
 <p align="center">
-  <img src="docs/assets/longvideo_eval_logo.png" alt="LongVideo-Eval logo" width="320">
+  <em>Same token budget, very different bills. LongVideo-Eval is the open platform where
+  long-video methods are built, compared against every baseline, and billed for everything
+  they spend, from the first decoded frame to the last generated token.</em>
 </p>
 
-<h1 align="center">LongVideo-Eval</h1>
+---
 
-<p align="center">
-  <b>A fair-cost evaluation harness for long-video understanding.</b><br>
-  The official code home of <b>LoHi</b> (NeurIPS 2026).
-</p>
+## 🚀 Overview
 
-<p align="center">
-  <a href="https://arxiv.org/abs/2610.04318"><img src="https://img.shields.io/badge/arXiv-2610.04318-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://openreview.net/forum?id=a9xLyT4hG4"><img src="https://img.shields.io/badge/NeurIPS-2026-4b44ce.svg" alt="NeurIPS 2026"></a>
-  <a href="https://sixundong.com/projects/longvideo-eval"><img src="https://img.shields.io/badge/Project-Page-2ea44f.svg" alt="Project page"></a>
-  <a href="https://sixundong.com/projects/lohi"><img src="https://img.shields.io/badge/LoHi-Page-d2382c.svg" alt="LoHi page"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="License"></a>
-</p>
+Long-video methods are compared by accuracy at a matched number of visual tokens. That
+leaves out most of what a long video costs. A keyframe selector decodes and scores
+hundreds of candidate frames to keep sixteen. A token pruner runs the full vision encoder
+before discarding most of its output. Neither shows up in a token count, and each paper
+measures it differently, if at all.
 
-> **Status: code release in progress.** The harness and the methods listed below are
-> implemented and are being prepared for release. Star or watch the repository to be
-> notified when they land.
+**LongVideo-Eval** puts long-video VLMs and efficiency methods on **one accuracy-cost
+axis**, with decoding, vision encoding, prefill and generation all measured in one place.
+It is an evaluation harness and a development platform at once: a new method is one stage
+of a shared pipeline, and it is compared with every baseline under the same input and the
+same budget from the first run.
 
-## LoHi (NeurIPS 2026)
+## ✨ Key Highlights
 
-**Rethinking Long-Video Efficiency: A Joint Allocation Perspective on Frames, Pixels, and Front-End Latency**
-
-Sixun Dong<sup>1</sup>, Wei Li<sup>1</sup>, Andong Deng<sup>1</sup>, Qi Qian<sup>2</sup>,
-Victor Zhu<sup>3</sup>, Zhengping Ji<sup>3</sup>, Chen Chen<sup>1</sup>
-
-<sup>1</sup>University of Central Florida &nbsp; <sup>2</sup>Meta Reality Labs &nbsp; <sup>3</sup>Axon
-
-[Paper](https://arxiv.org/abs/2610.04318) ·
-[OpenReview](https://openreview.net/forum?id=a9xLyT4hG4) ·
-[Project page](https://sixundong.com/projects/lohi) ·
-[Blog](https://sixundong.com/blog.html?post=lohi-rethinking-long-video-efficiency)
-
-Three lessons from the paper:
-
-1. **Your model needs more frames, not more pixels.**
-2. **Low-resolution frames answer most questions; a few need detail.**
-3. **Don't ignore the front-end: decoding can outlast the model.**
-
-LoHi will be released here, as part of the harness.
-
-## Why a harness
-
-Long-video methods are usually compared by accuracy at a matched number of visual tokens.
-That leaves out most of what a long video actually costs. A keyframe selector may decode
-and score hundreds of candidate frames to keep sixteen. A token pruner may run the full
-vision encoder before discarding most of its output. Neither cost shows up in a token
-count, and each paper measures it differently, if at all.
-
-LongVideo-Eval evaluates long-video VLMs and efficiency methods on **one accuracy-cost
-axis**, with decoding, vision encoding and prefill all measured in one place:
-
-- **One pipeline, one stage per method.** Every method plugs into exactly one stage of a
-  fixed chain and inherits everything else unchanged.
-- **One budget.** Every method in a comparison reads the same decoded frame pool under the
-  same frame and token budget.
-- **One cost record.** Decode time, frames decoded, vision-encoder load, visual tokens into
-  the LLM, prefill and generated tokens are recorded per sample by the harness, never
+- **One entry.** Every method is a plug-in for one stage of the same pipeline, whether it
+  selects frames, allocates resolution, prunes tokens or runs several rounds. Everything
+  around it is shared.
+- **One input.** Same backbone, same decoded frame pool, same frame and token budget for
+  every method in a comparison.
+- **One meter.** Decode time, frames decoded, vision-encoder load, visual tokens into the
+  LLM, prefill and generated tokens are recorded per sample by the harness, never
   self-reported by a method.
+- **One picture.** Every run lands as a point on the same accuracy-cost plane, next to the
+  strongest baselines.
+- **Built to grow.** A new benchmark is one task file, a new budget is one line, and a new
+  kind of cost is one field that is then metered for every method.
 
-## Framework
+## 📅 News
+
+- **2026.10** — The repository and the [project page](https://sixundong.com/projects/longvideo-eval) are public. Code release is in preparation.
+- **2026.10** — [LoHi](https://arxiv.org/abs/2610.04318) (NeurIPS 2026), the paper that inspired this project, is on arXiv.
+
+## 🧩 Framework
 
 A run is a fixed chain of stages. Each stage is a small protocol, and a method implements
 exactly one of them:
@@ -92,7 +88,7 @@ Adding a method will mean implementing one stage protocol and registering it und
 The budget, the rest of the pipeline and the metering are inherited, so every method is
 directly comparable with every other one.
 
-## Release plan
+## 📦 Release plan
 
 Everything below is implemented. Items are checked off as they are released.
 
@@ -105,26 +101,23 @@ Everything below is implemented. Items are checked off as they are released.
 | Keyframe selection | Query-aware keyframe baselines | Waiting to be released |
 | LoHi | LoHi-Uniform, LoHi-SemDiv | Waiting to be released |
 
-## Where this is going
+## 🔭 Where this is going
 
-LoHi was the first paper to come out of this harness. The harness itself is the long-term
-project: a common ground where the whole field is measured the same way, and a workbench
-for building what comes next.
+The harness is a long-term project: a common ground where the whole field is measured the
+same way, and a workbench for building what comes next.
 
-- **Evaluate.** Run any method on any benchmark under the same budget and get its full
-  bill, not only its accuracy.
-- **Develop.** Write a new method as one stage, inherit the rest of the pipeline, and see
-  it next to every baseline the same afternoon.
-- **Extend.** A new benchmark is one task file, a new budget is one line, and a new kind
-  of cost is one field that is then metered for every method.
-- **Cover the field.** Token pruning, keyframe selection and resolution allocation first,
-  then agentic and multi-turn methods, streaming and memory models, more backbones and
-  faster backends.
+- **Now.** Token pruning, keyframe selection and resolution allocation on the Qwen3-VL
+  family, across Video-MME, MLVU and LVBench, every run with a full bill.
+- **Next.** Agentic and multi-turn methods, where every extra round is charged. Streaming
+  and memory models. More backbones, faster inference backends, more benchmarks, with full
+  documentation and an API reference.
+- **Then.** A public accuracy-cost leaderboard that anyone can add a point to, with
+  methods, datasets and budgets contributed by the people who build them.
 
 See the [project page](https://sixundong.com/projects/longvideo-eval) for the full picture
 and the [release log](CHANGELOG.md) for what has landed.
 
-## Get involved
+## 🤝 Get involved
 
 This repository is updated continuously, and contributions are welcome:
 
@@ -132,9 +125,20 @@ This repository is updated continuously, and contributions are welcome:
 - **Propose a dataset, a budget or a cost** the comparison is missing by opening an issue.
 - **Collaborate** on joint evaluations or anything larger: sixundong.ai@gmail.com
 
-## Papers
+## 💡 Inspiration: LoHi
 
-If you find this project useful, please consider citing our work:
+LongVideo-Eval was inspired by [LoHi](https://sixundong.com/projects/lohi) (NeurIPS 2026),
+whose three lessons are the principles the harness is built to test at scale:
+
+1. **Your model needs more frames, not more pixels.**
+2. **Low-resolution frames answer most questions; a few need detail.**
+3. **Don't ignore the front-end: decoding can outlast the model.**
+
+LoHi is one method family in the harness, and its code is released here.
+
+## 📚 Papers
+
+If you find this project useful, please consider citing the work it builds on:
 
 - **LoHi**: Rethinking Long-Video Efficiency (NeurIPS 2026) · [arXiv](https://arxiv.org/abs/2610.04318) · [project page](https://sixundong.com/projects/lohi)
 - **MMTok**: Multimodal Coverage Maximization for Efficient Inference of VLMs (ICLR 2026) · [arXiv](https://arxiv.org/abs/2508.18264) · [code](https://github.com/Ironieser/MMTok)
@@ -172,13 +176,13 @@ If you find this project useful, please consider citing our work:
 
 </details>
 
-## Acknowledgements
+## 🙏 Acknowledgements
 
 This project stands on the following work:
 
 - [Rethinking Model Efficiency: Multi-Agent Inference with Large Models](https://arxiv.org/abs/2604.04929),
-  earlier work from the authors on inference efficiency that motivates this project.
-- [MMTok](https://github.com/Ironieser/MMTok), our multimodal coverage-maximization token
+  earlier work on inference efficiency that motivates this project.
+- [MMTok](https://github.com/Ironieser/MMTok), a multimodal coverage-maximization token
   selection method, which is one of the pruning baselines in the harness.
 - [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval), whose task and model
   conventions the harness follows so that benchmarks stay easy to port.
