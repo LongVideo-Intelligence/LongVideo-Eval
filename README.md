@@ -2,7 +2,7 @@
 
 <img src="docs/assets/longvideo_eval_logo.png" alt="LongVideo-Eval logo" width="300">
 
-# LongVideo-Eval: A Fair-Cost Platform for Long-Video Understanding
+# LongVideo-Eval: Evaluation Infrastructure for Long-Video Intelligence
 
 [![Project Page](https://img.shields.io/badge/Project-Page-8A2BE2?logo=googlechrome&logoColor=white)](https://sixundong.com/projects/longvideo-eval)
 [![GitHub](https://img.shields.io/badge/GitHub-Code-black?logo=github)](https://github.com/Ironieser/LongVideo-Eval)
@@ -15,9 +15,9 @@ Maintained by **[Sixun Dong](https://sixundong.com)** and [contributors](https:/
 </div>
 
 <p align="center">
-  <em>Same token budget, very different bills. LongVideo-Eval is the open platform where
-  long-video methods are built, compared against every baseline, and billed for everything
-  they spend, from the first decoded frame to the last generated token.</em>
+  <em>LongVideo-Eval is a system-aware, complete-cost evaluation harness for long-video
+  intelligence. It compares long-video pipelines under fixed backbones, matched evidence
+  budgets, and one shared cost ledger spanning video-side and model-side work.</em>
 </p>
 
 <p align="center">
@@ -34,11 +34,14 @@ hundreds of candidate frames to keep sixteen. A token pruner runs the full visio
 before discarding most of its output. Neither shows up in a token count, and each paper
 measures it differently, if at all.
 
-**LongVideo-Eval** puts long-video VLMs and efficiency methods on **one accuracy-cost
-axis**, with decoding, vision encoding, prefill and generation all measured in one place.
-It is an evaluation harness and a development platform at once: a new method is one stage
-of a shared pipeline, and it is compared with every baseline under the same input and the
-same budget from the first run.
+**LongVideo-Eval** is a **system-aware, complete-cost** evaluation harness for long-video
+intelligence. It compares long-video pipelines under **fixed backbones**, **matched
+evidence budgets**, and **one shared cost ledger** spanning video-side and model-side
+work: decoding, vision encoding, prefill and generation, all measured in one place.
+
+It is a development platform as much as a benchmark. A new method is one stage of a shared
+pipeline, and it is compared with every baseline under the same input and the same budget
+from the first run.
 
 ## ✨ Key Highlights
 
