@@ -12,7 +12,9 @@
 
 **LongVideo-Eval Team**
 
-Project lead: **[Sixun Dong](https://sixundong.com)**
+**[Sixun Dong](https://sixundong.com)** · Haoyue Bai · Ming Yin · Nanxu Gong · Wei Li · Andong Deng · Qi Qian · Victor Zhu · Zhengping Ji · Chen Chen
+
+<sub>Project lead: Sixun Dong</sub>
 
 </div>
 
