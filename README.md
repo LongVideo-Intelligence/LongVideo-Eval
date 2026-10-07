@@ -106,10 +106,14 @@ Everything below is implemented. Items are checked off as they are released.
 
 ## Papers
 
-LongVideo-Eval builds on a line of work from the same authors on efficient multimodal
-inference. If you find this project useful, please consider citing:
+If you find this project useful, please consider citing our work:
 
-**LoHi** (NeurIPS 2026) · [arXiv](https://arxiv.org/abs/2610.04318) · [project page](https://sixundong.com/projects/lohi)
+- **LoHi**: Rethinking Long-Video Efficiency (NeurIPS 2026) · [arXiv](https://arxiv.org/abs/2610.04318) · [project page](https://sixundong.com/projects/lohi)
+- **MMTok**: Multimodal Coverage Maximization for Efficient Inference of VLMs (ICLR 2026) · [arXiv](https://arxiv.org/abs/2508.18264) · [code](https://github.com/Ironieser/MMTok)
+- **Rethinking Model Efficiency**: Multi-Agent Inference with Large Models · [arXiv](https://arxiv.org/abs/2604.04929)
+
+<details>
+<summary>BibTeX</summary>
 
 ```bibtex
 @inproceedings{dong2026lohi,
@@ -121,11 +125,7 @@ inference. If you find this project useful, please consider citing:
   archivePrefix = {arXiv},
   url       = {https://arxiv.org/abs/2610.04318}
 }
-```
 
-**MMTok** (ICLR 2026) · [arXiv](https://arxiv.org/abs/2508.18264) · [code](https://github.com/Ironieser/MMTok)
-
-```bibtex
 @inproceedings{dong2026mmtok,
   title     = {{MMT}ok: Multimodal Coverage Maximization for Efficient Inference of {VLM}s},
   author    = {Dong, Sixun and Hu, Juhua and Zhang, Mian and Yin, Ming and Fu, Yanjie and Qian, Qi},
@@ -133,11 +133,7 @@ inference. If you find this project useful, please consider citing:
   year      = {2026},
   url       = {https://openreview.net/forum?id=GvPdSWZT31}
 }
-```
 
-**Rethinking Model Efficiency** · [arXiv](https://arxiv.org/abs/2604.04929)
-
-```bibtex
 @article{dong2026rethinking,
   title   = {Rethinking Model Efficiency: Multi-Agent Inference with Large Models},
   author  = {Dong, Sixun and Hu, Juhua and Li, Steven and Wen, Wei and Qian, Qi},
@@ -145,6 +141,8 @@ inference. If you find this project useful, please consider citing:
   year    = {2026}
 }
 ```
+
+</details>
 
 ## Acknowledgements
 
