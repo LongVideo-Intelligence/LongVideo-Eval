@@ -20,6 +20,10 @@ Maintained by **[Sixun Dong](https://sixundong.com)** and [contributors](https:/
   they spend, from the first decoded frame to the last generated token.</em>
 </p>
 
+<p align="center">
+  ⭐ <b>Star this repository to follow the release.</b> Code, methods and benchmarks are landing continuously.
+</p>
+
 ---
 
 ## 🚀 Overview
