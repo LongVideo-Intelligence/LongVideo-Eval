@@ -10,11 +10,7 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](#-get-involved)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green)](LICENSE)
 
-**LongVideo-Eval Team**
-
-**[Sixun Dong](https://sixundong.com)** · Haoyue Bai · Ming Yin · Nanxu Gong · Wei Li · Andong Deng · Qi Qian · Victor Zhu · Zhengping Ji · Chen Chen
-
-<sub>Project lead: Sixun Dong</sub>
+Maintained by **[Sixun Dong](https://sixundong.com)** and [contributors](https://sixundong.com/projects/longvideo-eval#contributors)
 
 </div>
 
