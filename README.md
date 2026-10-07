@@ -12,8 +12,6 @@
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](#-get-involved)
 [![License](https://img.shields.io/badge/License-Apache%202.0-green)](LICENSE)
 
-Maintained by **[Sixun Dong](https://sixundong.com)** and [contributors](https://sixundong.com/projects/longvideo-eval#contributors)
-
 </div>
 
 <p align="center">
