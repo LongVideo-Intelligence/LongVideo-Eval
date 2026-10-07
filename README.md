@@ -157,18 +157,19 @@ If you find this project useful, please consider citing the work it builds on:
 }
 
 @inproceedings{dong2026mmtok,
-  title     = {{MMT}ok: Multimodal Coverage Maximization for Efficient Inference of {VLM}s},
-  author    = {Dong, Sixun and Hu, Juhua and Zhang, Mian and Yin, Ming and Fu, Yanjie and Qian, Qi},
-  booktitle = {The Fourteenth International Conference on Learning Representations (ICLR)},
-  year      = {2026},
-  url       = {https://openreview.net/forum?id=GvPdSWZT31}
+  title={Mmtok: Multimodal coverage maximization for efficient inference of vlms},
+  author={Dong, Sixun and Hu, Juhua and Zhang, Mian and Yin, Ming and Fu, Yanjie and Qian, Qi},
+  booktitle={International Conference on Learning Representations},
+  volume={2026},
+  pages={48075--48099},
+  year={2026}
 }
 
 @article{dong2026rethinking,
-  title   = {Rethinking Model Efficiency: Multi-Agent Inference with Large Models},
-  author  = {Dong, Sixun and Hu, Juhua and Li, Steven and Wen, Wei and Qian, Qi},
-  journal = {arXiv preprint arXiv:2604.04929},
-  year    = {2026}
+  title={Rethinking Model Efficiency: Multi-Agent Inference with Large Models},
+  author={Dong, Sixun and Hu, Juhua and Li, Steven and Wen, Wei and Qian, Qi},
+  journal={arXiv preprint arXiv:2604.04929},
+  year={2026}
 }
 ```
 
