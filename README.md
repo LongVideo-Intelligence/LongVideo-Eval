@@ -54,7 +54,7 @@ same budget from the first run.
 ## 📅 News
 
 - **2026.10** — The repository and the [project page](https://sixundong.com/projects/longvideo-eval) are public. Code release is in preparation.
-- **2026.10** — LoHi (NeurIPS 2026), the paper that inspired this project, is on arXiv. [[Paper](https://arxiv.org/abs/2610.04318)] [[Homepage](https://sixundong.com/projects/lohi)]
+- **2026.10** — Our paper **LoHi** is accepted to NeurIPS 2026 and released on arXiv. [[Paper](https://arxiv.org/abs/2610.04318)] [[Homepage](https://sixundong.com/projects/lohi)]
 
 ## 🧩 Framework
 
