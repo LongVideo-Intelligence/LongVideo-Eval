@@ -105,6 +105,33 @@ Everything below is implemented. Items are checked off as they are released.
 | Keyframe selection | Query-aware keyframe baselines | Waiting to be released |
 | LoHi | LoHi-Uniform, LoHi-SemDiv | Waiting to be released |
 
+## Where this is going
+
+LoHi was the first paper to come out of this harness. The harness itself is the long-term
+project: a common ground where the whole field is measured the same way, and a workbench
+for building what comes next.
+
+- **Evaluate.** Run any method on any benchmark under the same budget and get its full
+  bill, not only its accuracy.
+- **Develop.** Write a new method as one stage, inherit the rest of the pipeline, and see
+  it next to every baseline the same afternoon.
+- **Extend.** A new benchmark is one task file, a new budget is one line, and a new kind
+  of cost is one field that is then metered for every method.
+- **Cover the field.** Token pruning, keyframe selection and resolution allocation first,
+  then agentic and multi-turn methods, streaming and memory models, more backbones and
+  faster backends.
+
+See the [project page](https://sixundong.com/projects/longvideo-eval) for the full picture
+and the [release log](CHANGELOG.md) for what has landed.
+
+## Get involved
+
+This repository is updated continuously, and contributions are welcome:
+
+- **Add a method or a benchmark** with a pull request.
+- **Propose a dataset, a budget or a cost** the comparison is missing by opening an issue.
+- **Collaborate** on joint evaluations or anything larger: sixundong.ai@gmail.com
+
 ## Papers
 
 If you find this project useful, please consider citing our work:
