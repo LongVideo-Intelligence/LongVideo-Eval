@@ -1,0 +1,9 @@
+# GPU environment for running real models (decode + HF backend + weights).
+# CI and laptops only need the base install (`pip install -e .`), which is enough for --dry-run.
+torch>=2.10
+torchvision
+transformers>=5.0
+accelerate
+decord==0.6.0
+pandas
+pyarrow

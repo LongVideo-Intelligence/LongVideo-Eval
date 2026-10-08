@@ -1,0 +1,27 @@
+# Video-MME (fu2025videomme) — MCQ over long videos, optional subtitle channel.
+# lmms-eval-style task file: dataset kwargs + doc_to_text prompt template + metric. Our OWN
+# runtime reads this (see tasks/loader.py); nothing imports lmms_eval.
+task: videomme
+output_type: multiple_choice
+metric: mcq_accuracy
+
+# Feed the subtitle channel identically to method AND baseline (parity).
+# Off by default here; --subtitles on the CLI forces it on for a run.
+subtitles: false
+
+dataset:
+  loader: longvideo_eval.data.videomme:VideoMME
+  kwargs:
+    # Env vars are expanded by the CLI so data roots stay out of version control. An unset var
+    # expands to the literal string and fails loudly at video/QA-file resolution.
+    video_root: ${VIDEOMME_DATA_ROOT}/videos
+    qa_path: ${VIDEOMME_DATA_ROOT}/qa.jsonl
+
+# Video-MME prompt phrasing (matches lmms-eval). {question} and {options} are filled by
+# Task.build_prompt; {options} is the lettered choice list. The answer parser prefers a [[X]]
+# wrap if one is present, but the prompt keeps lmms-eval's concise "Respond with only the letter".
+doc_to_text: |-
+  Select the best answer to the following multiple-choice question based on the video. Respond with only the letter (A, B, C or D) of the correct option.
+  {question}
+  {options}
+  The best answer is:

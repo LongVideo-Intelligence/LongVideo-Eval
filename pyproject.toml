@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "longvideo-eval"
+version = "0.1.0"
+description = "Evaluation infrastructure for long-video intelligence: a system-aware, complete-cost evaluation harness."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "pyyaml>=6.0",
+  "numpy>=1.24",
+]
+
+[project.urls]
+Homepage = "https://sixundong.com/projects/longvideo-eval"
+Repository = "https://github.com/LongVideo-Intelligence/LongVideo-Eval"
+
+[project.scripts]
+longvideo-eval = "longvideo_eval.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.4",
+  "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["longvideo_eval*"]
+
+[tool.setuptools.package-data]
+longvideo_eval = ["tasks/*.yaml"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Pin the rule set explicitly so a ruff release that widens its defaults cannot turn CI red.
+select = ["E4", "E7", "E9", "F"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]   # tests import the helper scripts as `scripts.<name>`
