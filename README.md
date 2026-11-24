@@ -156,11 +156,6 @@ useful, please consider citing it:
 - **MMTok**: Multimodal Coverage Maximization for Efficient Inference of VLMs (ICLR 2026) · [arXiv](https://arxiv.org/abs/2508.18264) · [code](https://github.com/Ironieser/MMTok)
 - **Rethinking Model Efficiency**: Multi-Agent Inference with Large Models · [arXiv](https://arxiv.org/abs/2604.04929)
 
-Each method in the harness has its own paper. If you use one, please cite it too:
-
-- **FlashVID**: Fan et al., 2026 · [arXiv](https://arxiv.org/abs/2602.08024) · [code](https://github.com/Fanziyang-v/FlashVID)
-- **VisionZip**: Yang et al., CVPR 2025 · [arXiv](https://arxiv.org/abs/2412.04467) · [code](https://github.com/JIA-Lab-research/VisionZip)
-- **AKS**: Tang et al., CVPR 2025 · [arXiv](https://arxiv.org/abs/2502.21271) · [code](https://github.com/ncTimTang/AKS)
 
 <details>
 <summary>BibTeX</summary>
